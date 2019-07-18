@@ -1,7 +1,7 @@
 version: "1"
-#install:
-#  coverity:
-#    version: latest
+install:
+  coverity:
+    version: latest
 project:
   name: ${scm.git.repo}
   branch: ${scm.git.branch}
