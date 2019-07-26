@@ -13,6 +13,8 @@ RUN chgrp -R 0 $CATALINA_HOME
 RUN chmod -R g+rw $CATALINA_HOME
 RUN find $CATALINA_HOME -type d -exec chmod g+x {} +
 
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
+
 COPY target/ducky-crm-0.3.0.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
