@@ -3,8 +3,8 @@ install:
   coverity:
     version: latest
 project:
-  name: ${scm.git.repo}
-  branch: ${scm.git.branch}
+  name: ducky-crm
+  branch: master
   revision:
     name: "ducky-crm-ebc"
     date: "2019-07-18T13:25:30Z"
