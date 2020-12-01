@@ -1,0 +1,20 @@
+application:
+  appId: java-ducky
+  assetId: java-ducky
+  projectLanguage: Java
+  platformVersion: Java 8
+  buildSystem: Maven
+  riskMatrixRevision: demo-1.1
+  sourceFilePattern: ".*\\+\\+\\+.*(\\.java)+.*"
+  sensitivePackagePattern: ""
+  fileChangeThreshold: 5
+
+environment:
+  scm: GitLab
+  scmOwner: xenserverarmy
+  scmRepositoryName: ducky-crm
+  scmBranchName: master
+  testDeploymentRoot: "blank"
+  imChannelIdentifier: ""
+  jiraProjectName: ""
+  jiraIssuesQuery: "resolution = \"Unresolved\" AND labels in (Security, Defect)"
