@@ -1,0 +1,61 @@
+@Library("stargazer-io@ssdc-pipe") _
+
+pipeline {
+    
+    environment {
+        STARGAZER_URL = 'http://io-stargazer.apps.openshift3.showcasecloud.us'
+    }
+    
+    agent
+    {
+        node {
+                label 'maven'
+        }
+    }
+    
+    stages 
+    {
+
+
+        stage('Pull code') {
+            steps {
+                echo 'start'
+                sh "java -version"
+                git changelog: false, poll: false, url: 'https://github.com/xenserverarmy/ducky-crm'
+
+            }
+        }
+
+        stage ('Load AST prescription') {
+            steps {
+                script {
+
+                    def manifest = loadPrescription('ApplicationManifest.yml','SecurityManifest.yml')
+
+                    currentBuild.result = 'SUCCESS'
+                    return
+                }
+            }
+        }
+
+        stage ('Build') {
+            steps {
+                sh "mvn clean package -DskipTests -B"
+            }
+        }
+        
+        stage ('Stash artifact') {
+            steps {
+                sh "cd target && cp `find *.war . -print  | head -n 1` root.war"
+                sh ("tar cvfz artifacts.tgz ./target/*.war ./Dockerfile")
+                archiveArtifacts 'artifacts.tgz'
+            }
+        }        
+        
+        stage('End') {
+            steps {
+                echo 'end'
+            }
+        }
+    }
+}
