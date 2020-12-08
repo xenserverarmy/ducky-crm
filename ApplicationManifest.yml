@@ -10,7 +10,7 @@ application:
   fileChangeThreshold: 5
 
 environment:
-  scm: GitLab
+  scm: github
   scmOwner: xenserverarmy
   scmRepositoryName: ducky-crm
   scmBranchName: master
