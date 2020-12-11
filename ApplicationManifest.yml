@@ -10,8 +10,8 @@ application:
   fileChangeThreshold: 5
 
 environment:
-  enableJira: false,
-  enableScm: false,
+  enableJira: false
+  enableScm: false
   scmOwner: "xenserverarmy"
   scmRepositoryName: "ducky-crm"
   scmBranchName: "master"
