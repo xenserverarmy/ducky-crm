@@ -1,20 +1,18 @@
 application:
   appId: java-ducky
-  assetId: java-ducky
+  assetId: ducky-crm
   projectLanguage: Java
   platformVersion: Java 8
   buildSystem: Maven
   riskMatrixRevision: demo-1.1
   sourceFilePattern: ".*\\+\\+\\+.*(\\.java)+.*"
-  sensitivePackagePattern: ""
+  sensitivePackagePattern: "password"
   fileChangeThreshold: 5
 
 environment:
-  scm: github
-  scmOwner: xenserverarmy
-  scmRepositoryName: ducky-crm
-  scmBranchName: master
-  testDeploymentRoot: "blank"
-  imChannelIdentifier: ""
-  jiraProjectName: ""
-  jiraIssuesQuery: "resolution = \"Unresolved\" AND labels in (Security, Defect)"
+  enableJira: false,
+  enableScm: false,
+  scmOwner: "xenserverarmy",
+  scmRepositoryName: "ducky-crm",
+  scmBranchName: "master",
+  githubApiUrl: "https://api.github.com/repos/"
