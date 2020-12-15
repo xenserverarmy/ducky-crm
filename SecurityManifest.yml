@@ -13,6 +13,6 @@ security:
     dast:
       rescanThreshold: 3
     dastplusm:
-      enabled: "false"
+      enabled: false
     sastplusm:
-      enabled: "false"
+      enabled: false
